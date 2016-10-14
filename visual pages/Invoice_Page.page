@@ -1,0 +1,53 @@
+<apex:page sidebar="false" standardController="Expense__c" renderAs="pdf" applyBodyTag="false" extensions="MemContribution">
+
+
+<head>
+Invoice
+</head>
+<body>
+         
+     <h1> Expense Details.. </h1>
+
+     <table border="2"  width="600px">
+     
+          <tr>
+              <td style="color:red;margin-left:30px;">Name</td>
+              <td><apex:OutputText value="{!Expense__c.Event__c}" ></apex:OutputText></td>
+          </tr>
+      
+          <tr>
+              <td style="color:red;margin-left:30px;">Date </td>
+              <td><apex:OutputText value="{!Expense__c.Date__c}"></apex:OutputText></td>
+          </tr>
+      
+           <tr>
+              <td style="color:red;margin-left:30px;">Amount </td>
+              <td><apex:OutputText value="{!Expense__c.Amount__c}"></apex:OutputText></td>
+          </tr>
+       
+           <tr>
+              <td style="color:red;margin-left:30px;">Total Contribution </td>
+              <td><apex:OutputText value="{!Expense__c.Donation__c}"></apex:OutputText></td>
+          </tr>
+     
+     </table>
+     
+     <h1>Contribution Details..</h1>
+          <table border="2"  width="600px" Class="center">
+                 <tr>
+                    <td> Name </td>
+                    <td> Contribution </td>
+                 </tr>   
+            <apex:repeat value="{!memCon}" var="i">
+                 <tr>
+                     <td> {!i.Contribution__c}</td>
+                     <td> {!i.Member__r.First_Name__c}</td>
+                 </tr>    
+            </apex:repeat>  
+          </table> 
+     
+     
+</body>
+    
+
+</apex:page>
